@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Portal</title>
+    <style>
+      :root {
+        font-family: Arial, sans-serif;
+        color: #222;
+        background: #f4f7fb;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        margin: 0;
+        background: #f4f7fb;
+      }
+      header {
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1070ff;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+      nav a:hover {
+        color: #1070ff;
+      }
+      .hero {
+        background: linear-gradient(135deg, #1070ff 0%, #55c8ff 100%);
+        color: #fff;
+        padding: 4rem 1.5rem 3rem;
+      }
+      .hero-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-copy h1 {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        margin: 0 0 1rem;
+        line-height: 1.05;
+      }
+      .hero-copy p {
+        font-size: 1rem;
+        max-width: 640px;
+        line-height: 1.75;
+        margin: 0;
+      }
+      .search-box {
+        background: rgba(255, 255, 255, 0.16);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        align-items: end;
+        backdrop-filter: blur(8px);
+      }
+      .search-box label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 0.35rem;
+      }
+      .search-box input,
+      .search-box select {
+        width: 100%;
+        padding: 0.8rem 0.9rem;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+      }
+      .search-box button {
+        border: none;
+        border-radius: 0.75rem;
+        padding: 0.95rem 1rem;
+        font-size: 1rem;
+        background: #fff;
+        color: #1070ff;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .search-box button:hover {
+        background: #f0f6ff;
+      }
+      .accommodations {
+        max-width: 1200px;
+        margin: -3rem auto 3rem;
+        padding: 0 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .card {
+        background: #fff;
+        border-radius: 1.25rem;
+        overflow: hidden;
+        box-shadow: 0 16px 40px rgba(16, 112, 255, 0.08);
+        transition: transform 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+      }
+      .card img {
+        width: 100%;
+        display: block;
+        height: 220px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 1.25rem;
+      }
+      .card-body h3 {
+        margin: 0 0 0.75rem;
+        font-size: 1.25rem;
+      }
+      .card-body p {
+        margin: 0 0 1.25rem;
+        color: #616161;
+        line-height: 1.6;
+      }
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1070ff;
+      }
+      .book-btn {
+        background: #1070ff;
+        color: #fff;
+        border: none;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .book-btn:hover {
+        background: #0956c5;
+      }
+      footer {
+        background: #0f1730;
+        color: #c9d2ff;
+        padding: 2rem 1.5rem;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-between;
+      }
+      .footer-inner p {
+        margin: 0;
+      }
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-links a {
+        color: #c9d2ff;
+        text-decoration: none;
+      }
+      @media (max-width: 720px) {
+        .hero-content {
+          padding-bottom: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <div class="logo">TravelPortal</div>
+        <nav>
+          <ul>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#accommodations">Stays</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-copy">
+          <h1>Discover your next unforgettable escape</h1>
+          <p>Search top-rated stays, compare prices, and book your dream getaway in minutes. Explore city escapes, seaside resorts, and mountain retreats.</p>
+        </div>
+        <form class="search-box" aria-label="Travel search">
+          <div>
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" placeholder="City, island or resort" />
+          </div>
+          <div>
+            <label for="checkin">Check-in</label>
+            <input type="date" id="checkin" name="checkin" />
+          </div>
+          <div>
+            <label for="checkout">Check-out</label>
+            <input type="date" id="checkout" name="checkout" />
+          </div>
+          <div>
+            <label for="guests">Guests</label>
+            <select id="guests" name="guests">
+              <option>1 guest</option>
+              <option>2 guests</option>
+              <option>3 guests</option>
+              <option>4 guests</option>
+            </select>
+          </div>
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </section>
+
+    <main>
+      <section id="accommodations" class="accommodations">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1501117716987-c8e3a7ba88bf?auto=format&fit=crop&w=800&q=80" alt="Modern city apartment" />
+          <div class="card-body">
+            <h3>Modern City Apartment</h3>
+            <p>Stay in a sleek downtown apartment with amazing skyline views and easy access to shopping, dining, and nightlife.</p>
+            <div class="card-footer">
+              <span class="price">$145/night</span>
+              <button class="book-btn" type="button">Book Now</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Coastal villa" />
+          <div class="card-body">
+            <h3>Coastal Villa Retreat</h3>
+            <p>Relax by the sea in a charming villa with private terrace, ocean breeze, and sunset views that last all evening.</p>
+            <div class="card-footer">
+              <span class="price">$230/night</span>
+              <button class="book-btn" type="button">Book Now</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Mountain cabin" />
+          <div class="card-body">
+            <h3>Mountain Cabin Escape</h3>
+            <p>Reconnect with nature in a cozy cabin surrounded by forests and trails, perfect for a weekend adventure or quiet retreat.</p>
+            <div class="card-footer">
+              <span class="price">$175/night</span>
+              <button class="book-btn" type="button">Book Now</button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-inner">
+        <div>
+          <p><strong>TravelPortal</strong></p>
+          <p>Plan your next trip with confidence. Find the best accommodations, compare prices, and book instantly.</p>
+        </div>
+        <div class="social-links">
+          <a href="#">Instagram</a>
+          <a href="#">Facebook</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+s
